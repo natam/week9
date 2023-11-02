@@ -1,18 +1,32 @@
 package org.afternoon_classes;
 
+import java.time.LocalDateTime;
+
 public class Employee implements Comparable {
     private int id;
     private String name;
     private String department;
     private String jobTitle;
     private int managerId;
+    private LocalDateTime hireDate;
 
+    private double salary;
     public Employee(int id, String name, String department, String jobTitle, int managerId) {
         this.id = id;
         this.name = name;
         this.department = department;
         this.jobTitle = jobTitle;
         this.managerId = managerId;
+    }
+
+    public Employee(int id, String name, String department, String jobTitle, int managerId, LocalDateTime hireDate, double salary) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+        this.jobTitle = jobTitle;
+        this.managerId = managerId;
+        this.hireDate = hireDate;
+        this.salary = salary;
     }
 
     public Employee(int id, String name) {
@@ -60,6 +74,22 @@ public class Employee implements Comparable {
         this.managerId = managerId;
     }
 
+    public LocalDateTime getHireDate() {
+        return hireDate;
+    }
+
+    public void setHireDate(LocalDateTime hireDate) {
+        this.hireDate = hireDate;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
     @Override
     public int compareTo(Object o) {
         if (o instanceof Employee) {
@@ -81,6 +111,8 @@ public class Employee implements Comparable {
             case department -> value=getDepartment();
             case jobTitle -> value=getJobTitle();
             case managerId -> value=String.valueOf(getManagerId());
+            case hireDate -> value=getHireDate().toString();
+            case salary -> value=String.valueOf(getSalary());
             default -> value = String.valueOf(getId());
         }
         return value;
@@ -89,5 +121,9 @@ public class Employee implements Comparable {
     @Override
     public String toString(){
         return "id: "+ id + " ,name: " + name + " ,department: "+ department + " ,job title: " + jobTitle + " ,manager id: " + managerId;
+    }
+
+    public void printReport(){
+        System.out.println(this.toString());
     }
 }

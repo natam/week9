@@ -24,6 +24,10 @@ public class Employees {
         return null;
     }
 
+    public HashSet<Employee> getEmployeesSet() {
+        return employeesSet;
+    }
+
     public void addEmployeeToMap(Employee employee) {
         employeesMap.putIfAbsent(employee.getId(), employee);
     }
@@ -36,6 +40,10 @@ public class Employees {
             employeesMap.put(id, new Employee(id, name, department, jobTitle, managerId));
             employeesSet.add(newEmployee);
         }
+    }
+
+    public HashMap<Integer, Employee> getEmployeesMap() {
+        return employeesMap;
     }
 
     public Employee getEmployeeFromMapById(int employeeId) {
@@ -102,5 +110,24 @@ public class Employees {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void printReport() {
+        StringBuilder report = new StringBuilder();
+        report
+                .append("Report ")
+                .append(LocalDateTime.now())
+                .append(System.lineSeparator())
+                .append("Employees number: ")
+                .append(employeesMap.size())
+                .append(System.lineSeparator())
+                .append("Employees by department")
+                .append(System.lineSeparator());
+        employeesMap
+                .values()
+                .stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()))
+                .forEach((key, value) -> report.append(key).append(" - ").append(value).append(System.lineSeparator()));
+        System.out.println(report);
     }
 }

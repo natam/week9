@@ -5,5 +5,7 @@ public enum EmployeeFields {
     name,
     managerId,
     jobTitle,
-    department
+    department,
+    hireDate,
+    salary
 }
