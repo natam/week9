@@ -39,7 +39,6 @@ public class Main {
             e.printStackTrace();
         }
 
-        hierarchy.getHierarchyLevels(List.of(hierarchy.root), 0);
         try {
             TreeNode commonParent = hierarchy.getLowestCommonParent(myEmployees.getEmployeeFromMapById(6), myEmployees.getEmployeeFromMapById(5));
             if(commonParent!=null){
@@ -47,7 +46,6 @@ public class Main {
             }else {
                 System.out.println("NO COMMON MANAGER");
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -3,7 +3,7 @@ package org.afternoon_classes;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class CompanyHierarchy {
+public class CompanyHierarchy implements ReportInterface{
     TreeNode root;
 
     public TreeNode getRoot() {

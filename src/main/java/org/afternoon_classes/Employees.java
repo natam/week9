@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Employees {
+public class Employees implements ReportInterface{
     private HashSet<Employee> employeesSet = new HashSet<>();
     private HashMap<Integer, Employee> employeesMap = new HashMap<>();
 

@@ -15,7 +15,7 @@ public enum ReportType {
         System.out.println(message);
     }
 
-    void getReport(Object object){
+    void getReport(ReportInterface object){
         printMessage();
         try {
             object.getClass().getDeclaredMethod("printReport").invoke(object);

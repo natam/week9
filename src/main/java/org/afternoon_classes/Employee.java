@@ -2,7 +2,7 @@ package org.afternoon_classes;
 
 import java.time.LocalDateTime;
 
-public class Employee implements Comparable {
+public class Employee implements Comparable, ReportInterface{
     private int id;
     private String name;
     private String department;
